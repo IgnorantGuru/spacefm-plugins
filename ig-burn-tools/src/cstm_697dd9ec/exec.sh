@@ -1,7 +1,7 @@
 #!/bin/bash
 $fm_import
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # exec.sh:  This script shows the Burn Disc dialog and conducts the burn.
@@ -720,6 +720,7 @@ mountburner()
     point="${point%%, *}"
     vollabel="`echo "$info" | grep "^  label:" | sed 's/.*: *\(.*\)/\1/'`"
     if [ ! -d "$point" ]; then
+        echo "*** Unable to determine mount point" > "$viewpipe"
         return 1
     fi
 }
@@ -800,6 +801,7 @@ startiso()
     settask to "$burner"
     settask from "$burn_path"
     settask progress 0
+    settask progress ""
     settask curremain
     settask avgremain
     echo "set progress1 0" > "$cmdpipe" &
@@ -901,6 +903,7 @@ startburn()
 startsnapshot()
 {
     echo "--- Writing Snapshot..." > "$viewpipe"
+    echo "set progress1  " > "$cmdpipe"
     settask item "Writing Snapshot"
     settask total
     settask progress 0
@@ -942,6 +945,7 @@ startsnapshot()
 startverify()
 {
     echo "--- $burn_verify..." > "$viewpipe"
+    echo "set progress1  " > "$cmdpipe"
     settask item "$burn_verify"
     settask total
     settask progress 0
@@ -1353,6 +1357,7 @@ while [ -p "$respipe" ] && [ -p "$cmdpipe" ] && ps -p $dlgpid 2>&1 >/dev/null; d
                     reloadtray
                     if (( burn_snapshot )) || [ "$burn_verify" != "Don't Verify" ]; then
                         if ! mountburner; then
+                            showmsg "Verification failed - unable to mount."
                             runalarm
                             setstate BUILD
                         else

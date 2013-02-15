@@ -1,0 +1,6 @@
+0.6     2013-02-15:
+    added -joliet-long to burn.sh mkisofs_base
+    added Find In Snapshots Search Terms/Regular Expression options
+    Find In Snapshots fix no matches msg on grep exit status
+0.5     2012-12-30:
+    initial release

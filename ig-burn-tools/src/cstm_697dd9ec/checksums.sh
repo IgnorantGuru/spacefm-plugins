@@ -1,7 +1,7 @@
 #!/bin/bash
 $fm_import
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # checksums.sh:  This script creates checksums for files on a disc.

@@ -1,8 +1,17 @@
-README for Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+README for IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+    https://github.com/IgnorantGuru/spacefm-plugins/blob/master/ig-burn-tools/src/cstm_697dd9ec/README
 
-Updated: v0.5.0   2012-Dec-27   beta
+Updated: v0.6   2013-Feb-15
+    https://github.com/IgnorantGuru/spacefm-plugins/blob/master/ig-burn-tools/src/cstm_697dd9ec/ChangeLog
 
 Thanks to Thomas Schmitt and OmegaPhil for help and testing.
+
+
+Browse IgnorantGuru's SpaceFM Plugins:
+    https://github.com/IgnorantGuru/spacefm-plugins/wiki
+    
+Browse ALL SpaceFM Plugins:
+    https://github.com/IgnorantGuru/spacefm/wiki/Plugins
 
 
 CONTENTS
@@ -10,12 +19,13 @@ CONTENTS
     DESCRIPTION
     DEPENDENCIES
     INSTRUCTIONS
+    SUPPORT
     LICENSE
 
 
 DESCRIPTION
 
-The Burn Tools plugin allows SpaceFM to be used as a simple GUI burning
+The IG Burn Tools plugin allows SpaceFM to be used as a simple GUI burning
 app.  While it can be used as-is, it also allows you to easily
 customize burn commands and add additional functionality.  You are also
 free to release modified versions of this plugin under a new name.
@@ -25,7 +35,7 @@ directory, while the plugin displays the total size of files and
 remaining space on disc.  Alternatively, an existing filesystem image
 can be burned, or a disc can be copied.
 
-This version of Burn Tools burns single session data discs only.  It
+This version of IG Burn Tools burns single session data discs only.  It can
 optionally save md5 checksums for all files on the disc, so a disc can
 later be verified even if the original files are gone.  It uses either
 mkisofs, xorrisofs, or genisoimage to create a filesystem image as a
@@ -35,7 +45,7 @@ burn.  Finally, it can verify the burn by verifying checksums,
 comparing the disc to the filesystem image, or comparing disc contents
 to directory contents.
 
-    Burn Tools adds the following commands to SpaceFM:
+    IG Burn Tools adds the following commands to SpaceFM:
 
     Burn Disc            Prepares disc content and burns a directory or image
                          to disc, or copies a disc.  Also adds checksums,
@@ -49,13 +59,13 @@ to directory contents.
     Take Snapshot        Saves a text file snapshot of disc contents for later
                          reference and searching.
 
-    Find In Snapshots    Searches through snapshots to find files or using a
-                         regex expression.
+    Find In Snapshots    Searches through snapshots to find files, search
+                         terms, or a regex expression.
 
 
 DEPENDENCIES
 
-    Burn Tools REQUIRES:
+    IG Burn Tools REQUIRES:
 
         spacefm v0.8.3 or later
         cdrecord OR cdrskin OR wodim         (OR customize your burn commands)
@@ -66,10 +76,13 @@ DEPENDENCIES
     NOTE:  Use of the genuine cdrtools or cdrskin is recommended over wodim
            (cdrkit).  See http://cdrecord.berlios.de/private/linux-dist.html
 
+    Plugin Installation Instructions:
+    http://ignorantguru.github.com/spacefm/spacefm-manual-en.html#plugins-install
+
 
 INSTRUCTIONS
 
-    Select Plugins|Burn Tools|Burn Disc to open the Burn Disc dialog (this
+    Select Plugins|IG Burn Tools|Burn Disc to open the Burn Disc dialog (this
     command can also be copied to another menu).  This dialog is used to
     compose disc contents and monitor burn progress.  The dialog has the
     following elements:
@@ -172,18 +185,18 @@ INSTRUCTIONS
 
 SUPPORT
 
-    For issues with this plugin, please post an issue to
-        https://github.com/IgnorantGuru/spacefm/issues
-    or email IgnorantGuru <ignorantguru@gmx.com>
+    For bugs, requests, or questions with this plugin, please post an issue to
+        https://github.com/IgnorantGuru/spacefm-plugins/issues
 
-    Support is provided for the Burn Tools GUI and internal functionality,
-    but not for general errors or failures in the burn programs (eg
-    cdrecord, etc), which you will need to research independently.
+    Support is provided for the IG Burn Tools GUI and internal 
+    functionality, but not for general errors or failures in the burn 
+    programs (eg cdrecord, etc), which you will need to research 
+    independently.
 
 
 LICENSE
 
-    Copyright (C) 2012 IgnorantGuru <ignorantguru@gmx.com>
+    Copyright (C) 2013 IgnorantGuru <ignorantguru@gmx.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

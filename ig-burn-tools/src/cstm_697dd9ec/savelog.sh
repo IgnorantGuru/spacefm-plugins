@@ -1,7 +1,7 @@
 #!/bin/bash
 $fm_import
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # savelog.sh:  This script shows the Save Log dialog (from Save Log button).

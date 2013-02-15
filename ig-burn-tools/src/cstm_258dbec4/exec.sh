@@ -1,10 +1,10 @@
 #!/bin/bash
 $fm_import    # import file manager variables (scroll down for info)
 #
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
-# exec.sh:  This script shows the Find In Snapshots command dialog.
+# exec.sh:  This script shows the Find In Snapshots command dialog and searches
 
 
 mkdir -p "$fm_cmd_data"
@@ -19,13 +19,19 @@ choosersizefile="$fm_cmd_data/choosersize"
 if [ ! -e "$choosersizefile" ]; then
     echo "800x600" > "$choosersizefile"
 fi
+searchtermsfile="$fm_cmd_data/searchtermsopt"
+searchregexfile="$fm_cmd_data/searchregexopt"
 
 eval "`spacefm -g --title "Find In Snapshots" --window-size "@$choosersizefile" \
         --label "Open a snapshot folder to search recursively:" \
         --chooser --dir "$path/." \
         --vbox --compact \
-        --label --wrap "\nEnter grep search regex (case insensitive) or leave blank to find currently selected filenames:" \
+        --hbox --compact \
+            --radio "Search Terms:" "@$searchtermsfile" \
+            --radio "Regular Expression:" "@$searchregexfile" \
+        --close-box \
         --input \
+        --label --wrap "(case insensitive - leave blank to find currently selected filenames)" \
         --close-box \
         --button cancel --button ok 2>/dev/null`"
 
@@ -37,35 +43,54 @@ path="$dialog_chooser1_dir"
 if [ -d "$path" ]; then
     echo "$path" > "$snapshotpathfile"
 fi
+regex=$dialog_radio2
+terms="$dialog_input1"
 
-if [ "$dialog_input1" = "" ]; then
+unset out
+if [ "$terms" = "" ]; then
     if [ "${fm_filenames[0]}" = "" ]; then
+        echo "Select one of more files in the file list to search for."
         exit 0
     fi
-    echo "Searching for ${#fm_filenames[@]} filenames..."
-    echo
-    found=0
+    if [ "${fm_filenames[1]}" = "" ]; then
+        echo "Searching for file '${fm_filename}'..."
+    else
+        echo "Searching for ${#fm_filenames[@]} filenames..."
+    fi
+    n=$'\n'
     for f in "${fm_filenames[@]}"; do
-        test=`grep -Fr "$f" "$path" 2> /dev/null`
-        if [ "$test" != "" ]; then
-            echo "$test"
-            found=1
+        if [ "$terms" = "" ]; then
+            terms="$f"
+        else
+            terms="$terms$n$f"
         fi
     done
-    if (( !found )); then
-        echo
-        echo "No matches."
-    fi
-else
-    echo ">>> grep -ir \"$dialog_input1\" \"$path\""
+    out=`grep -rF "$terms" "$path"`
+elif (( regex == 1 )); then
+    echo ">>> grep -ir '$terms' '$path'"
     echo
-    grep -ir "$dialog_input1" "$path"
-
-    if [ $? -ne 0 ]; then
-        echo
-        echo "No matches."
-    fi
+    out=`grep -ir "$terms" "$path"`
+else
+    echo "Searching for AND terms: $terms"
+    for term in $terms; do
+        if [ "$out" = "" ]; then
+            out=`grep -irF "$term" "$path"`
+        else
+            out=`echo "$out" | grep -i "$term"`
+        fi
+        if [ "$out" = "" ]; then
+            break
+        fi
+    done
 fi
+
+echo
+if [ "$out" = "" ]; then
+    echo "No matches."
+else
+    echo "$out"
+fi
+
 exit 0
 
 

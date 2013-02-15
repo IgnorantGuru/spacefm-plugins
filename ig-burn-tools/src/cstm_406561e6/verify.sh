@@ -1,7 +1,7 @@
 #!/bin/bash
 $fm_import
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # verify.sh:  This script verifies disc contents by one of three methods.  A
@@ -98,6 +98,7 @@ elif [ "$burn_verify" = "Compare To Dir" ]; then
     IFS=$'\n'
  	diffcount=0
 	filecount=0
+    prosize=0
     treelen=${#tree}
 	for f1 in `find -L "$tree" -type f`;
 	do
@@ -120,7 +121,12 @@ elif [ "$burn_verify" = "Compare To Dir" ]; then
 		fi
         fsize=`stat -Lc %s "$f1"`
         (( completed += fsize ))
-        setprogress
+        # don't setprogress too rapidly on small files
+        (( prosize += fsize ))
+        if (( prosize > 26214400 )); then
+            prosize=0
+            setprogress
+        fi
 	done
     IFS="$IFS_OLD"
 

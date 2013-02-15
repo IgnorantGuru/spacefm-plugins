@@ -1,7 +1,7 @@
 #!/bin/bash
 $fm_import    # import file manager variables (scroll down for info)
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # configure.sh:  This script shows the Configuration dialog (Configure button).

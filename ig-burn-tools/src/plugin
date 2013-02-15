@@ -5,7 +5,7 @@
 [Plugin]
 config_version-s=16
 cstm_209aa997-x=0
-cstm_209aa997-label=Burn Tools
+cstm_209aa997-label=IG Burn Tools
 cstm_209aa997-child=cstm_697dd9ec
 cstm_209aa997-style=17
 cstm_209aa997-task=1
@@ -39,6 +39,8 @@ cstm_7d3dcf7e-task_err=1
 cstm_7d3dcf7e-task_out=1
 cstm_7d3dcf7e-keep=1
 cstm_258dbec4-x=1
+cstm_258dbec4-key=107
+cstm_258dbec4-keymod=4
 cstm_258dbec4-label=Find In Snapshots
 cstm_258dbec4-prev=cstm_7d3dcf7e
 cstm_258dbec4-task=1

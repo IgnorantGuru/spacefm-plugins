@@ -1,4 +1,8 @@
-spacefm-plugins
-===============
+IgnorantGuru's SpaceFM Plugins Repo
+===================================
 
-IgnorantGuru's SpaceFM Plugins
+This repo contains plugins developed by IgnorantGuru for use in the [SpaceFM](https://github.com/IgnorantGuru/spacefm/) file manager.
+
+To see the list and instructions visit [IgnorantGuru's SpaceFM Plugins](https://github.com/IgnorantGuru/spacefm-plugins/wiki).
+
+To see ***ALL SpaceFM Plugins*** visit the [SpaceFM Plugins Wiki](https://github.com/IgnorantGuru/spacefm/wiki/plugins).

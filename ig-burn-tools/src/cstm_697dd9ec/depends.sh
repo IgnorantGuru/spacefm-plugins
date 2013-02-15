@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # depends.sh:  This source script tests dependencies and exits with status 1

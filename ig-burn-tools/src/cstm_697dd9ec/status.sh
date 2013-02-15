@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # status.sh:  This script sets the spacefm status bar to show deep size once.

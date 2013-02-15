@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
 # License: GPL2+  ( See README )
 #
 # burn.sh:  This script contains the commands to create filesystem images
@@ -8,9 +8,10 @@
 
 # NOTE: If you have prefered cdrecord/mkisofs programs, set them in config.sh
 
+
 # The base command to create a filesystem image:
-# ( Note that xorrisofs requires options to be separated  eg NO -fRrJ )
-mkisofs_base="$mkisofs -f -R -r -J -iso-level 3"
+# ( Note that earlier xorrisofs requires options to be separated  eg NO -fRrJ )
+mkisofs_base="$mkisofs -f -R -r -J -joliet-long -iso-level 3"
 
 if [ "$1" = "--verbose" ]; then
     verbose=1
