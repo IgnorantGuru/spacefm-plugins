@@ -1,0 +1,200 @@
+README for Burn Tools ( a SpaceFM Plugin ) by IgnorantGuru
+
+Updated: v0.5.0   2012-Dec-27   beta
+
+Thanks to Thomas Schmitt and OmegaPhil for help and testing.
+
+
+CONTENTS
+
+    DESCRIPTION
+    DEPENDENCIES
+    INSTRUCTIONS
+    LICENSE
+
+
+DESCRIPTION
+
+The Burn Tools plugin allows SpaceFM to be used as a simple GUI burning
+app.  While it can be used as-is, it also allows you to easily
+customize burn commands and add additional functionality.  You are also
+free to release modified versions of this plugin under a new name.
+
+To create disc content, files, folders, or links are placed in a burn
+directory, while the plugin displays the total size of files and
+remaining space on disc.  Alternatively, an existing filesystem image
+can be burned, or a disc can be copied.
+
+This version of Burn Tools burns single session data discs only.  It
+optionally save md5 checksums for all files on the disc, so a disc can
+later be verified even if the original files are gone.  It uses either
+mkisofs, xorrisofs, or genisoimage to create a filesystem image as a
+separate step, then uses cdrecord, cdrskin, or wodim to burn the
+image.  It can optionally save a snapshot of disc contents after the
+burn.  Finally, it can verify the burn by verifying checksums,
+comparing the disc to the filesystem image, or comparing disc contents
+to directory contents.
+
+    Burn Tools adds the following commands to SpaceFM:
+
+    Burn Disc            Prepares disc content and burns a directory or image
+                         to disc, or copies a disc.  Also adds checksums,
+                         takes a snapshot, and verifies.  Includes a
+                         configuration dialog.
+
+    Verify Disc          Verifies disc content by checking on-disc checksums,
+                         comparing the disc to an image, or comparing disc
+                         contents to a directory.
+
+    Take Snapshot        Saves a text file snapshot of disc contents for later
+                         reference and searching.
+
+    Find In Snapshots    Searches through snapshots to find files or using a
+                         regex expression.
+
+
+DEPENDENCIES
+
+    Burn Tools REQUIRES:
+
+        spacefm v0.8.3 or later
+        cdrecord OR cdrskin OR wodim         (OR customize your burn commands)
+        mkisofs OR xorrisofs OR genisoimage  (OR customize your burn commands)
+        udevil
+        eject
+
+    NOTE:  Use of the genuine cdrtools or cdrskin is recommended over wodim
+           (cdrkit).  See http://cdrecord.berlios.de/private/linux-dist.html
+
+
+INSTRUCTIONS
+
+    Select Plugins|Burn Tools|Burn Disc to open the Burn Disc dialog (this
+    command can also be copied to another menu).  This dialog is used to
+    compose disc contents and monitor burn progress.  The dialog has the
+    following elements:
+
+    Burn Dir:|Burn Image:|Copy Disc:
+    At the top of the dialog, choose the burn function and enter a path
+    to be burned - either a directory, an image location, or a drive to
+    copy.  When using Burn Dir, typically you will create a temporary
+    directory to hold your disc contents, then paste links to files and
+    folders into this directory.  While the Burn Disc dialog is open,
+    SpaceFM's status bars will show the deep size of all selected items.
+    The deep size calculation follows links and descends into directories
+    for a total size.  Also, the Burn Disc task listed in the task manager
+    will show the total space used and available for the burn, similar to a
+    GUI burning app.
+
+    Type:
+    Select a media or burn type.  By default the type will be set based on
+    the media currently in the drive, but can also be changed.  If no media
+    is in the drive, the type, if recognized, will determine how much free
+    space is available.  A custom type can also be entered in the box, or
+    added to the list with the Configure button.  (All types are handled by
+    the default burn command the same way, but you can add additional
+    functionality which uses the Type to conditionally burn in different
+    ways.)
+
+    Speed:
+    The speed at which to burn.  If set to Max or empty, the default speed
+    is used (usually the maximum for the media).  Otherwise the speed is
+    passed to cdrecord.  The dialog will remember the last speed used for
+    each Type.
+
+    Label:
+    The volume label of the disc.  This is set by default to the current
+    label of the disc in the drive, or to the name of the burn directory.
+
+    Checksums
+    If checked, md5sum will be used to generate checksums for all files on
+    the disc, and a gzipped checksum file will be burned to the disc,
+    allowing the disc to be verified after the burn or anytime later.
+
+    Snapshot
+    When checked, a save dialog will open allowing you to choose a snapshot
+    filename.  A snapshot is a text file containing a directory listing of
+    the disc, created after the burn.  Snapshots allow you to review or
+    search what files are burned to what discs.
+
+    Save Image
+    When checked, a save dialog will open allowing you to choose an image
+    filename.  The filesystem image will be saved to this name rather than
+    deleted when the burn is finished.
+
+    Don't Verify|Verify Checksums|Compare To Image|Compare To Dir
+    Sets the mode for data verification after burning.  Depending on the
+    burn function, not all methods may be allowed.
+
+    Configure [button]
+    Opens a Configuration dialog which allows you to change:
+
+        Burner:
+        The drive used to burn (eg /dev/sr0)
+
+        Large Temp Dir:
+        If specified, temporary image files will be saved to this directory
+        rather than to the default SpaceFM tmp directory.  Image files may
+        be as large as the media being burned.
+
+        Notify Command:
+        When a burn has completed (successfully or with errors), the bash
+        command line in Notify Command will be run.  This can be used to
+        play a sound, show a dialog, etc. to get attention.  Note that the
+        command is run via eval, which means some special characters may
+        need to be escaped.
+
+        Verbose Output
+        Show detailed output in the monitor - useful for debugging burn
+        commands, etc.
+
+        Types: & Speeds:
+        Entries in these lists will appear in the drop-down lists of the
+        dialog.  You can add additional types and speeds here.
+
+        Select a file to edit...
+        Selecting a file in this drop-down list will open it in your
+        editor.  In particular, the default burn programs can be set in
+        config.sh, and the burn commands can be modified in burn.sh.  Note
+        that you will be unable to save the edited file unless you have
+        copied the Burn Disc command from Plugins to another menu (plugins
+        cannot be edited directly by the user).
+
+    Save Log [button]
+    Saves the contents of the monitor to a file you specify.
+
+    Cancel [button]
+    Cancels whatever task is in progress, or closes the dialog.
+
+    Burn [button]
+    Starts the burn process.
+
+
+SUPPORT
+
+    For issues with this plugin, please post an issue to
+        https://github.com/IgnorantGuru/spacefm/issues
+    or email IgnorantGuru <ignorantguru@gmx.com>
+
+    Support is provided for the Burn Tools GUI and internal functionality,
+    but not for general errors or failures in the burn programs (eg
+    cdrecord, etc), which you will need to research independently.
+
+
+LICENSE
+
+    Copyright (C) 2012 IgnorantGuru <ignorantguru@gmx.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+

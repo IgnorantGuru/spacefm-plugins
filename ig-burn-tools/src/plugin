@@ -1,0 +1,49 @@
+# SpaceFM Plugin File
+
+# THIS FILE IS NOT DESIGNED TO BE EDITED
+
+[Plugin]
+config_version-s=16
+cstm_209aa997-x=0
+cstm_209aa997-label=Burn Tools
+cstm_209aa997-child=cstm_697dd9ec
+cstm_209aa997-style=17
+cstm_209aa997-task=1
+cstm_209aa997-task_err=1
+cstm_209aa997-task_out=1
+cstm_209aa997-keep=1
+cstm_697dd9ec-x=1
+cstm_697dd9ec-key=98
+cstm_697dd9ec-keymod=4
+cstm_697dd9ec-label=Burn Disc
+cstm_697dd9ec-next=cstm_406561e6
+cstm_697dd9ec-parent=cstm_209aa997
+cstm_697dd9ec-task=1
+cstm_697dd9ec-task_err=1
+cstm_697dd9ec-keep=1
+cstm_406561e6-x=1
+cstm_406561e6-label=Verify Disc
+cstm_406561e6-next=cstm_7d3dcf7e
+cstm_406561e6-prev=cstm_697dd9ec
+cstm_406561e6-task=1
+cstm_406561e6-task_err=1
+cstm_406561e6-task_out=1
+cstm_406561e6-keep=1
+cstm_7d3dcf7e-x=1
+cstm_7d3dcf7e-key=-1
+cstm_7d3dcf7e-label=Take Snapshot
+cstm_7d3dcf7e-next=cstm_258dbec4
+cstm_7d3dcf7e-prev=cstm_406561e6
+cstm_7d3dcf7e-task=1
+cstm_7d3dcf7e-task_err=1
+cstm_7d3dcf7e-task_out=1
+cstm_7d3dcf7e-keep=1
+cstm_258dbec4-x=1
+cstm_258dbec4-label=Find In Snapshots
+cstm_258dbec4-prev=cstm_7d3dcf7e
+cstm_258dbec4-task=1
+cstm_258dbec4-task_err=1
+cstm_258dbec4-task_out=1
+cstm_258dbec4-keep=1
+cstm_258dbec4-scroll=1
+
