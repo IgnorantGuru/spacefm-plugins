@@ -1,0 +1,63 @@
+README for IG Paste Into ( a SpaceFM Plugin ) by IgnorantGuru
+
+Initial release: v1.0   2013-Nov-25
+https://github.com/IgnorantGuru/spacefm-plugins/blob/master/ig-paste-into/src/cstm_3e9d8fc5/ChangeLog
+
+Browse SpaceFM Plugins:
+    https://github.com/IgnorantGuru/spacefm/wiki/Plugins
+
+
+CONTENTS
+
+    DESCRIPTION
+    DEPENDENCIES
+    INSTRUCTIONS
+    SUPPORT
+    LICENSE
+
+
+DESCRIPTION
+
+    Paste Into pastes clipboard files into a single selected folder, or else 
+    into the current folder.  It is intended to replace or supplement 
+    SpaceFM's built-in Paste command.
+
+
+DEPENDENCIES
+
+    spacefm >= 0.8.7
+
+
+INSTRUCTIONS
+
+    First, copy or cut one or more files or folders to the clipboard with 
+    the standard Copy or Cut commands.
+    
+    Then select (highlight) a single folder to paste into, and select the 
+    Paste Into command.  Or, if a single folder is not selected, files will 
+    be pasted into the current folder.
+
+
+SUPPORT
+
+    For bugs or questions with this plugin, please post an issue to
+        https://github.com/IgnorantGuru/spacefm-plugins/issues
+
+
+LICENSE
+
+    Copyright (C) 2013 IgnorantGuru <ignorantguru@gmx.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
