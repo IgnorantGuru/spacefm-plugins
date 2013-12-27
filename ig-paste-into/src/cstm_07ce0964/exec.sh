@@ -7,8 +7,6 @@ $fm_import    # import file manager variables (scroll down for info)
 #
 # This script will paste clipboard files into a single selected folder, or into
 # the current folder.
-/data
-
 
 # Get clipboard
 task_type=copy
