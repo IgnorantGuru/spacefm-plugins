@@ -1,12 +1,13 @@
 #!/bin/bash
 $fm_import    # import file manager variables (scroll down for info)
 #
-# IG Paste Into ( a SpaceFM Plugin ) by IgnorantGuru
+# IG Paste Into ( a SpaceFM Plugin ) by IgnorantGuru v1.1
 # License: GPL2+  ( See README )
 # Requires: spacefm >= 0.8.7
 #
 # This script will paste clipboard files into a single selected folder, or into
 # the current folder.
+/data
 
 
 # Get clipboard
@@ -15,7 +16,13 @@ eval clip="$(spacefm -s get clipboard_copy_files)"
 if [ "${clip[0]}" = "" ]; then
     eval clip="$(spacefm -s get clipboard_cut_files)"
     if [ "${clip[0]}" = "" ]; then
-        # ignore empty clipboard
+        # no files on clipboard
+	clip_text="`spacefm -s get clipboard_text`"
+	if [ "$clip_text" != "" ]; then
+	    # paste text to pathbar
+	    spacefm -s set focused_pane pathbar
+	    spacefm -s set pathbar_text "$clip_text"
+	fi
         exit 0
     fi
     task_type=move

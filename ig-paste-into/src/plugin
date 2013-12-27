@@ -4,13 +4,13 @@
 
 [Plugin]
 config_version-s=23
-cstm_3e9d8fc5-x=1
-cstm_3e9d8fc5-y=
-cstm_3e9d8fc5-key=-1
-cstm_3e9d8fc5-label=P_aste Into
-cstm_3e9d8fc5-icon=gtk-paste
-cstm_3e9d8fc5-cxt=1%%%%%1%%%%%9%%%%%0%%%%%true
-cstm_3e9d8fc5-task_err=1
-cstm_3e9d8fc5-task_out=1
-cstm_3e9d8fc5-keep=1
+cstm_07ce0964-x=1
+cstm_07ce0964-y=
+cstm_07ce0964-key=-1
+cstm_07ce0964-label=P_aste Into
+cstm_07ce0964-icon=gtk-paste
+cstm_07ce0964-cxt=1%%%%%1%%%%%9%%%%%0%%%%%true
+cstm_07ce0964-task_err=1
+cstm_07ce0964-task_out=1
+cstm_07ce0964-keep=1
 

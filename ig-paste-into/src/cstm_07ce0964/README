@@ -1,10 +1,7 @@
 README for IG Paste Into ( a SpaceFM Plugin ) by IgnorantGuru
 
-Initial release: v1.0   2013-Nov-25
-https://github.com/IgnorantGuru/spacefm-plugins/blob/master/ig-paste-into/src/cstm_3e9d8fc5/ChangeLog
-
-Browse SpaceFM Plugins:
-    https://github.com/IgnorantGuru/spacefm/wiki/Plugins
+Release: v1.1   2013-Dec-27
+https://github.com/IgnorantGuru/spacefm-plugins/wiki#wiki-ig-paste-into
 
 
 CONTENTS
@@ -36,6 +33,9 @@ INSTRUCTIONS
     Then select (highlight) a single folder to paste into, and select the 
     Paste Into command.  Or, if a single folder is not selected, files will 
     be pasted into the current folder.
+
+    If the clipboard contains text instead of files, Paste Into will paste the
+    clipboard text in the pathbar.
 
 
 SUPPORT
