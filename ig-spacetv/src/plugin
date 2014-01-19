@@ -1,0 +1,72 @@
+# SpaceFM Plugin File
+
+# THIS FILE IS NOT DESIGNED TO BE EDITED
+
+[Plugin]
+config_version-s=23
+cstm_5724e904-x=0
+cstm_5724e904-label=SpaceTV
+cstm_5724e904-icon=mpv
+cstm_5724e904-child=cstm_325c1cf6
+cstm_5724e904-style=17
+cstm_5724e904-task=1
+cstm_5724e904-task_err=1
+cstm_5724e904-task_out=1
+cstm_5724e904-keep=1
+cstm_325c1cf6-x=1
+cstm_325c1cf6-y=
+cstm_325c1cf6-label=Play Video
+cstm_325c1cf6-icon=mpv
+cstm_325c1cf6-next=cstm_24f65950
+cstm_325c1cf6-cxt=1%%%%%0%%%%%0%%%%%4%%%%%video/
+cstm_325c1cf6-parent=cstm_5724e904
+cstm_325c1cf6-task_err=1
+cstm_325c1cf6-task_out=1
+cstm_325c1cf6-keep=1
+cstm_24f65950-x=1
+cstm_24f65950-y=
+cstm_24f65950-label=Play Video w/ Options
+cstm_24f65950-icon=mpv
+cstm_24f65950-next=cstm_6311c045
+cstm_24f65950-cxt=1%%%%%0%%%%%0%%%%%4%%%%%video/
+cstm_24f65950-prev=cstm_325c1cf6
+cstm_24f65950-task_err=1
+cstm_24f65950-task_out=1
+cstm_24f65950-keep=1
+cstm_6311c045-x=1
+cstm_6311c045-y=
+cstm_6311c045-label=Resume Last
+cstm_6311c045-icon=gtk-media-previous
+cstm_6311c045-next=cstm_22f53177
+cstm_6311c045-prev=cstm_24f65950
+cstm_6311c045-task_err=1
+cstm_6311c045-task_out=1
+cstm_6311c045-keep=1
+cstm_22f53177-x=1
+cstm_22f53177-y=
+cstm_22f53177-label=Resume Prior
+cstm_22f53177-icon=gtk-media-rewind
+cstm_22f53177-next=cstm_5a35be92
+cstm_22f53177-prev=cstm_6311c045
+cstm_22f53177-task_err=1
+cstm_22f53177-task_out=1
+cstm_22f53177-keep=1
+cstm_5a35be92-x=3
+cstm_5a35be92-y=
+cstm_5a35be92-z=~/.mpv/spacetv/watch_later_files
+cstm_5a35be92-label=Browse Unfinished
+cstm_5a35be92-next=cstm_44ddc0b1
+cstm_5a35be92-prev=cstm_22f53177
+cstm_5a35be92-task=1
+cstm_5a35be92-task_err=1
+cstm_5a35be92-task_out=1
+cstm_5a35be92-keep=1
+cstm_44ddc0b1-x=1
+cstm_44ddc0b1-y=
+cstm_44ddc0b1-label=Options
+cstm_44ddc0b1-icon=gtk-preferences
+cstm_44ddc0b1-prev=cstm_5a35be92
+cstm_44ddc0b1-task_err=1
+cstm_44ddc0b1-task_out=1
+cstm_44ddc0b1-keep=1
+

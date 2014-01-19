@@ -1,0 +1,177 @@
+README for IG SpaceTV ( a SpaceFM Plugin ) by IgnorantGuru
+
+Updated: v0.5   2014-Jan-19
+    https://github.com/IgnorantGuru/spacefm-plugins/blob/master/ig-spacetv/
+
+
+Browse IgnorantGuru's SpaceFM Plugins:
+    https://github.com/IgnorantGuru/spacefm-plugins/wiki
+
+Browse ALL SpaceFM Plugins:
+    https://github.com/IgnorantGuru/spacefm/wiki/Plugins
+
+
+CONTENTS
+
+    DESCRIPTION
+    INSTALLATION
+    INSTRUCTIONS
+    SUPPORT
+    LICENSE
+
+
+DESCRIPTION
+
+The IG SpaceTV plugin is ideal for an HTPC setup or any media PC.
+
+SpaceTV adds resumable video playback to SpaceFM via the mpv video player.
+mpv is an actively developed and feature-rich fork of the mplayer/mplayer2
+video players.  See http://mpv.io
+
+SpaceTV allows you to play videos in fullscreen without a video player
+window, resuming videos from their last position and restoring mpv volume
+and other settings.  It can also resume the last played video or prior
+videos.  mpv options may be set globally and on a per video basis.
+
+SpaceTV adds the following commands to SpaceFM:
+
+    Play Video      Plays the selected video(s) in mpv and saves a resume
+                    point.  Press Q to quit mpv.
+
+    Play Video w/ Options
+                    Prompts for options to play the selected video(s).
+
+    Resume Last     Resumes playing the last unfinished video.
+
+    Resume Prior    Shifts the last played video down and resumes the prior
+                    video.  Use repeatedly to move backward through videos.
+
+    Browse Unfinished
+                    Opens the folder containing links to unfinished videos.
+
+    Options         Opens a dialog allowing you to set mpv options for
+                    playback.
+
+
+INSTALLATION
+
+    IG SpaceTV REQUIRES:
+
+        spacefm v0.9.0 or later
+        mpv
+        mpv recommends: ffmpeg (or libav)
+            See https://github.com/mpv-player/mpv/wiki/FFmpeg-versus-Libav
+
+    General Plugin Installation Instructions:
+    http://ignorantguru.github.com/spacefm/spacefm-manual-en.html#plugins-install
+
+    To have SpaceTV play all video files by default, first select (highlight)
+    a video file in the file list.  Next right-click on the
+    Play Video menu item and select Properties.  In the Properties dialog
+    select the Context tab, and set "If enabled, use as opener for:" to
+    'files'.  If you don't want it to play all video files, you can adjust the
+    context rules to limit what is played.
+
+    It's also recommended that you create the file ~/.mpv/input.conf, and add
+    the following lines:
+
+        HOME seek 0 absolute
+        END seek +14400
+
+    With this file in place, you can press the Home key in mpv to go to the
+    beginning of a video, or press End to quit without saving a resume point.
+
+    For best results, set key shortcuts for the Resume Last (Win+R) and
+    Resume Prior (Win+Shift+R) menu items.  (Right-click on the menu item
+    and select Key Shortcut to set a key.)  Or, you can set system-wide key
+    shortcuts to run the following commands (so they will work outside of
+    SpaceFM):
+
+        # Resume Last
+        ~/.mpv/spacetv/resume-last
+
+        # Resume Prior
+        ~/.mpv/spacetv/resume-last --resumepre
+
+    Note that SpaceTV stores data in a 'spacetv' subfolder of mpv's config
+    folder: ~/.mpv
+
+    You must use the Play Video command once before the other commands can 
+    be used (except Options).
+
+    For greater customization, feel free to edit the spacetv.sh script. When 
+    Play Video is first run, a link to the spacetv.sh script is created: 
+    ~/.mpv/spacetv/resume-last.  The link is used by the Resume Last and 
+    Resume Prior commands or may be executed directly.  Or to open this 
+    script in SpaceFM, right-click on the Play Video menu item and select 
+    Properties.  Click the Options tab and select Open In Browser: Command 
+    Dir. Close the dialog and open the spacetv.sh script.
+
+    The spacetv.sh script may also be used independently of SpaceFM to play
+    videos, or resume the last or prior videos.  See spacetv.sh --help.
+    This script only requires mpv, not SpaceFM.
+
+
+INSTRUCTIONS
+
+    Play Video will play selected video(s) in mpv and save resume points if
+    the video does not play to the end.  When the same video is played again,
+    it will resume where it left off, and the mpv volume and other settings
+    will be restored to those used the last time this file was played.  Note
+    that some resume functions only work if a single file is played at a time.
+    mpv does not have a GUI, although there is a popup control panel.  For
+    many useful key shortcuts see
+        https://github.com/mpv-player/mpv/blob/master/DOCS/man/en/mpv.rst
+
+    If you want to play a video using specific options, use Play Video w/
+    Options.  This dialog also contains a scratchpad where notes or unused
+    options can be stored. (You must use the Play Video command at least
+    once after installation before the Play Video w/ Options command can be
+    used.)  Press the Help button to open the mpv options manual.
+
+    Resume Last will resume the last incomplete video.  It works by finding
+    the most recently modified link in ~/.mpv/spacetv/watch_later_files/
+
+    Resume Prior finds the last incomplete video and sets its timestamp to
+    an old date.  Then it find the next most recent file and plays it.  The
+    effect is that using Resume Prior multiple times will keep stepping
+    backward through resumeable videos.  (Once you reach the beginning of the
+    list, the order will be effectively random.)
+
+    Browse Unfinished opens ~/.mpv/spacetv/watch_later_files/ in a tab of
+    SpaceFM so you can view and play videos that have resume points.  You can
+    also set a bookmark to this folder.  (Using a link to this folder may not
+    work correctly, but this folder itself may be replaced by a link.)
+
+    Options allows you to set options to be used when Play Video, Resume Last,
+    or Resume Prior is used.  The Options dialog also contains a scratchpad
+    where notes or unused options can be stored.
+
+
+SUPPORT
+
+    For bugs, requests, or questions with this plugin, please post an issue to
+        https://github.com/IgnorantGuru/spacefm-plugins/issues
+
+    Support is provided for the IG SpaceTV GUI and internal
+    functionality, but not for general errors or failures in the mpv player,
+    which you will need to research independently.
+
+
+LICENSE
+
+    Copyright (C) 2014 IgnorantGuru <ignorantguru@gmx.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
