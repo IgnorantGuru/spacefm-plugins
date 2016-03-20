@@ -1,0 +1,28 @@
+README
+------
+
+Example Application doesn't do anything useful, but the script demonstrates one method of controlling SpaceFM Dialog from a script, effectively making a small application.  The widgets shown in the Example Application, and their functions, are arbitrary and unimportant, and may be replaced with whatever widgets your application requires.  The method of communication/control between the script's main loop and the running dialog is the primary purpose of this example.
+
+In simpler examples, SpaceFM Dialog may be used to show a dialog, and interacting with the dialog may execute some simple commands, as shown in multiple examples in the user's manual.  When the dialog is closed, the script may then perform a function based on what the user had entered in the dialog.
+
+However, in an application, we want the dialog window to stay open and perform more extensive actions as the user interacts with it, not just when the dialog is closed.  This is more like writing an application in Python or C, where a window is shown, then a main loop is run which handles events in the window and runs code blocks to respond.  In Example Application, such a main loop is setup in bash, with events and dialog commands communicated via pipes.
+
+To create a dialog which behaves like an application, allowing the user to interact with functions while the dialog is open, this script creates a command pipe which is used to send commands to the dialog, an action pipe which is used to send dialog events to the running script, and other pipes or watched files to control the dialog from the script.
+
+The Example Application script creates data files to store dialog contents and settings, shows the dialog, then runs a main loop to wait for actions from the dialog (and/or from other processes) and to perform periodic updates.  When an action occurs, it responds by modifying the dialog.
+
+This script can be run as a SpaceFM custom command script or independently.  If run independently, a "--config-dir DIR" or "-c DIR" option may be specified on the script's command line to control where data files are stored.  Use of SpaceFM 0.9.3 or greater is recommended.
+
+
+Copyright and License Information:
+
+    Copyright (C) 2016 IgnorantGuru <ignorantguru@gmx.com>
+
+    License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+    https://creativecommons.org/licenses/by/4.0/
+
+    You are free to:
+        Share - copy and redistribute the material in any medium or format
+        Adapt - remix, transform, and build upon the material for any purpose,
+                even commercially.
+

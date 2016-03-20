@@ -1,0 +1,13 @@
+# SpaceFM Plugin File
+
+# THIS FILE IS NOT DESIGNED TO BE EDITED
+
+[Plugin]
+config_version-s=37
+cstm_66ed13fb-x=1
+cstm_66ed13fb-y=
+cstm_66ed13fb-label=Example Application
+cstm_66ed13fb-task_err=1
+cstm_66ed13fb-task_out=1
+cstm_66ed13fb-keep=1
+
